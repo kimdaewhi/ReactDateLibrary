@@ -9,43 +9,24 @@ function App() {
   const [activeDayJS, setActiveDayJS] = useState(false);
   const [activeDateFNS, setActiveDateFNS] = useState(false);
 
-  // useEffect(() => {;
-  //   console.log("activeMomentJS : " + activeMomentJS + ", activeDayJS : " + activeDayJS + ", activeDateFNS : " + activeDateFNS)
+  useEffect(() => {;
+    console.log("activeMomentJS : " + activeMomentJS + ", activeDayJS : " + activeDayJS + ", activeDateFNS : " + activeDateFNS)
 
-  //   if(activeMomentJS) {
-  //     setActiveDayJS(false);
-  //     setActiveDateFNS(false);
-  //   }
-  //   else if(activeDayJS) {
-  //     setActiveMomentJS(false);
-  //     setActiveDateFNS(false);
-  //   }
-  //   else if(activeDateFNS) {
-  //     setActiveMomentJS(false);
-  //     setActiveDayJS(false);
-  //   }
-  // }, [activeMomentJS, activeDayJS, activeDateFNS]);
+    // if(activeMomentJS) {
+    //   setActiveDayJS(false);
+    //   setActiveDateFNS(false);
+    // }
+    // else if(activeDayJS) {
+    //   setActiveMomentJS(false);
+    //   setActiveDateFNS(false);
+    // }
+    // else if(activeDateFNS) {
+    //   setActiveMomentJS(false);
+    //   setActiveDayJS(false);
+    // }
+  }, [activeMomentJS, activeDayJS, activeDateFNS]);
 
-
-  const toggleMomentJS = () => {
-    // console.log("activeMomentJS : " + activeMomentJS + ", activeDayJS : " + activeDayJS + ", activeDateFNS : " + activeDateFNS)
-
-    setActiveMomentJS(!activeMomentJS);
-    setActiveDayJS(false);
-    setActiveDateFNS(false);
-  };
-
-  const toggleDayJS = () => {
-    setActiveDayJS(!activeDayJS);
-    setActiveMomentJS(false);
-    setActiveDateFNS(false);
-  };
-
-  const toggleDateFNS = () => {
-    setActiveDateFNS(!activeDateFNS);
-    setActiveMomentJS(false);
-    setActiveDayJS(false);
-  };
+  
 
   const Dropdown = props => {
     const [visibilityAnimation, setVisibilityAnimation] = useState(false);    // Close 시 DOM이 사라지지 않게 해주기 위한 상태
@@ -70,23 +51,25 @@ function App() {
 
   const [dropdownVisibility, setDropdownVisibility] = React.useState(false);
 
+
+  
   return (
     <div className="App">
 
       {/* Moment.js 토글 */}
-      <div className={`toggle${activeMomentJS ? `-active` : ``}`} style={{textAlign: "center"}} onClick={toggleMomentJS}>
+      <div className={`toggle${activeMomentJS ? `-active` : ``}`} style={{textAlign: "center"}} onClick={() => setActiveMomentJS(!activeMomentJS)}>
         <h3>MOMENT.JS</h3>
       </div>
       {activeMomentJS && <MomentPractice className="moment-practice"/>}
 
       {/* Day.js 토글 */}
-      <div className={`toggle${activeDayJS ? `-active` : ``}`} style={{textAlign: "center"}} onClick={toggleDayJS}>
+      <div className={`toggle${activeDayJS ? `-active` : ``}`} style={{textAlign: "center"}} onClick={() => setActiveDayJS(!activeDayJS)}>
         <h3>DAY.JS</h3>
       </div>
       {activeDayJS && <DayJSPractice />}
 
       {/* Date FNS 토글 */}
-      <div className={`toggle${activeDateFNS ? `-active` : ``}`} style={{textAlign: "center"}} onClick={toggleDateFNS}>
+      <div className={`toggle${activeDateFNS ? `-active` : ``}`} style={{textAlign: "center"}} onClick={() => setActiveDateFNS(!activeDateFNS)}>
         <h3>DATE FNS</h3>
       </div>
       {activeDateFNS && <DateFNSPractice />}
