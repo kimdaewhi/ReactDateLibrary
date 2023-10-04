@@ -1,9 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import dayjs from 'dayjs'
+import 'dayjs/locale/ko';
 
 export default function DayJSPractice() {
 	const [currTime, setCurrTime] = useState(dayjs());
 	const fixedDate = dayjs("2023-10-02 07:01:42");
+
+	const date1 = dayjs("2021-10-11 10:30:25.495", "YYYY-MM-DD HH:mm:ss.SSS");
+	const date2 = dayjs("2020-04-08 13:25:30.000", "YYYY-MM-DD HH:mm:ss.SSS");
+
+	const korTime = dayjs("2023-07-15 22:07:24");
+
+	const birthdayRef = useRef(null);
 
 	useEffect(() => {
 		const timerID = setInterval(() => {
@@ -16,8 +24,13 @@ export default function DayJSPractice() {
 	}, []); 
 
 
-	const date1 = dayjs("2021-10-11 10:30:25.495", "YYYY-MM-DD HH:mm:ss.SSS");
-	const date2 = dayjs("2020-04-08 13:25:30.000", "YYYY-MM-DD HH:mm:ss.SSS");
+	const handleBirthdayChange = (event) => {
+        console.log("선택한 날짜 : " + event.target.value + ", " + "요일 : " + dayjs(event.target.value, "YYYY-MM-DD").format("dddd"));
+
+        setDay(dayjs(event.target.value, "YYYY-MM-DD").format("dddd"));
+    };
+	const [day, setDay] = useState("");
+
 
 	return (
 		<div style={{marginLeft: "7px", border: "solid 0.5px lightgray", paddingLeft: "7px"}}>
@@ -45,6 +58,22 @@ export default function DayJSPractice() {
 				월{` : `}{date1.diff(date2, "month")}<br/>
 				주{` : `}{date1.diff(date2, "week")}<br/>
 				일{` : `}{date1.diff(date2, "date")}<br/>
+			</div>
+
+			<hr/>
+
+			<div>
+				<h3 style={{color: "gray"}}>한국어로 표기하기</h3>
+				{korTime.format("YYYY년 MM월 DD일 HH:mm:ss")}
+			</div>
+
+			<hr/>
+				<h3 style={{color: "gray"}}>내 생일 날짜 구하기</h3>
+				<input type="date" ref={birthdayRef} onChange={handleBirthdayChange}/>
+				<br/>
+                <b>요일 {` : `}</b>{day}
+			<div>
+
 			</div>
 		</div>
 	)
