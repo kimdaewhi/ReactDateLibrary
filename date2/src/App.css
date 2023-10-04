@@ -6,11 +6,15 @@
   background: lightgray;
   cursor: pointer;
   padding: 10px;
-  margin-bottom: 5px;
+  margin: 5px;
   user-select: none; /* 텍스트 선택 비활성화 */
 }
 
 .toggle-active {
+  background: lightgray;
+  cursor: pointer;
+  padding: 10px;
+  margin: 5px;
   user-select: none; /* 텍스트 선택 비활성화 */
 }
 
