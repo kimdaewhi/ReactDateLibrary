@@ -50,7 +50,7 @@ export default function MomentPractice() {
     }
 
     return (
-        <div className={`moment-practice`} style={{marginLeft: "7px", border: "solid 0.5px lightgray", paddingLeft: "7px"}}>
+        <div style={{marginLeft: "7px", border: "solid 0.5px lightgray", paddingLeft: "7px"}}>
             <h1>Moment.js Practice</h1>
             <div>
                 <h3 style={{color: "gray"}}>불변성(Immutability) 원칙</h3>
