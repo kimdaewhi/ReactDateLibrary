@@ -3,6 +3,8 @@ import dayjs from 'dayjs'
 import 'dayjs/locale/ko';
 
 export default function DayJSPractice() {
+	dayjs.locale('ko');
+	
 	const [currTime, setCurrTime] = useState(dayjs());
 	const fixedDate = dayjs("2023-10-02 07:01:42");
 
