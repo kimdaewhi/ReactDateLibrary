@@ -2,59 +2,30 @@
   text-align: left;
 }
 
-.toggle {
-  background: lightgray;
+.division {
+  background: #402c38;
+  color: #f8f8ff;
   cursor: pointer;
   padding: 10px;
   margin: 5px;
   user-select: none; /* 텍스트 선택 비활성화 */
+  
 }
 
-.toggle-active {
-  background: lightgray;
-  cursor: pointer;
-  padding: 10px;
+
+.accordion {
+  background-color: #9d9abe;
+  height: 0;
   margin: 5px;
-  user-select: none; /* 텍스트 선택 비활성화 */
+  user-select: none;
+
+  transition: height 0.3s ease-in-out;
+}
+
+.activeTrue {
+  background-color: #9d9abe;
+  height: 200px;
+  transition: height 0.3s ease-in-out;
 }
 
 
-
-/* fade in */
-@keyframes slide-fade-in-dropdown-animation {
-  0% {
-    transform: translateY(-100%);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
-}
-
-.slide-fade-in-dropdown {
-  overflow: hidden;
-}
-
-.slide-fade-in-dropdown > ul {
-  animation: slide-fade-in-dropdown-animation 0.4s ease;
-}
-
-/* fade out */
-@keyframes slide-fade-out-dropdown-animation {
-  0% {
-    transform: translateY(0);
-  }
-
-  100% {
-    transform: translateY(-100%);
-  }
-}
-
-.slide-fade-out-dropdown {
-  overflow: hidden;
-}
-
-.slide-fade-out-dropdown > ul {
-  animation: slide-fade-out-dropdown-animation 0.4s ease;
-  animation-fill-mode: forwards;
-}

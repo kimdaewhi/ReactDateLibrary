@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useEffect }from 'react'
+import React, { useState, useEffect, useRef }from 'react'
 import MomentPractice from './components/moment/MomentPractice'
 import DayJSPractice from './components/dayJs/DayJSPractice'
 import DateFNSPractice from './components/dateFns/DateFNSPractice'
@@ -9,85 +9,55 @@ function App() {
   const [activeDayJS, setActiveDayJS] = useState(false);
   const [activeDateFNS, setActiveDateFNS] = useState(false);
 
-  useEffect(() => {;
-    console.log("activeMomentJS : " + activeMomentJS + ", activeDayJS : " + activeDayJS + ", activeDateFNS : " + activeDateFNS)
+  const momentRef = useRef(null);
 
-    // if(activeMomentJS) {
-    //   setActiveDayJS(false);
-    //   setActiveDateFNS(false);
-    // }
-    // else if(activeDayJS) {
-    //   setActiveMomentJS(false);
-    //   setActiveDateFNS(false);
-    // }
-    // else if(activeDateFNS) {
-    //   setActiveMomentJS(false);
-    //   setActiveDayJS(false);
-    // }
+  useEffect(() => {
+
   }, [activeMomentJS, activeDayJS, activeDateFNS]);
 
-  
+  const MomentJSClickHandler = () => {
+    setActiveMomentJS(!activeMomentJS);
+  }
 
-  const Dropdown = props => {
-    const [visibilityAnimation, setVisibilityAnimation] = useState(false);    // Close 시 DOM이 사라지지 않게 해주기 위한 상태
 
-    useEffect(() => {
-      if(props.visibility) {
-        setVisibilityAnimation(true);
-      }
-      else {
-        setTimeout(() => {
-          setVisibilityAnimation(false);
-        }, 500);      // 애니메이션에서 지정한 Interval만큼
-      }
-    }, [props.visibility]);
+  /* ========================== TEST ==========================*/
+  const [testFlag, setTestFlag] = useState(false);
+  const testRef = useRef(null);
 
-    return (
-      <article className={`${props.visibility ? 'slide-fade-in-dropdown' : 'slide-fade-out-dropdown'}`}>
-        {visibilityAnimation && props.children}
-      </article>
-    );
+  const testDivHandler = () => {
+    setTestFlag(!testFlag);
   };
-
-  const [dropdownVisibility, setDropdownVisibility] = React.useState(false);
-
-
+  /* ========================================================== */
   
   return (
     <div className="App">
 
       {/* Moment.js 토글 */}
-      <div className={`toggle${activeMomentJS ? `-active` : ``}`} style={{textAlign: "center"}} onClick={() => setActiveMomentJS(!activeMomentJS)}>
+      <div className="division" style={{textAlign: "center"}} onClick={MomentJSClickHandler}>
         <h3>MOMENT.JS</h3>
       </div>
-      {activeMomentJS && <MomentPractice className="moment-practice"/>}
+      {/* activeMomentJS && <MomentPractice /> */}
+      <MomentPractice className={`${activeMomentJS ? 'moment' : 'moment active'}`} ref={momentRef}/>
 
       {/* Day.js 토글 */}
-      <div className={`toggle${activeDayJS ? `-active` : ``}`} style={{textAlign: "center"}} onClick={() => setActiveDayJS(!activeDayJS)}>
+      <div className="division" style={{textAlign: "center"}} onClick={() => setActiveDayJS(!activeDayJS)}>
         <h3>DAY.JS</h3>
       </div>
       {activeDayJS && <DayJSPractice />}
 
       {/* Date FNS 토글 */}
-      <div className={`toggle${activeDateFNS ? `-active` : ``}`} style={{textAlign: "center"}} onClick={() => setActiveDateFNS(!activeDateFNS)}>
+      <div className="division" style={{textAlign: "center"}} onClick={() => setActiveDateFNS(!activeDateFNS)}>
         <h3>DATE FNS</h3>
       </div>
       {activeDateFNS && <DateFNSPractice />}
 
       <hr/>
-
-      <button onClick={e => setDropdownVisibility(!dropdownVisibility)}>
-        { dropdownVisibility ? "Close" : "Open" }
-      </button>
-
-      <Dropdown visibility={dropdownVisibility}>
-        <ul>
-          <li>Item 1</li>
-          <li>Item 2</li>
-          <li>Item 3</li>
-          <li>Item 4</li>
-        </ul>
-      </Dropdown>
+      
+      {/* ========================== TEST ==========================*/}
+      <button className="active-button" style={{margin: "5px"}} onClick={testDivHandler}>TEST</button>
+      <div className={`accordion${testFlag ? ` activeTrue` : ``}`} ref={testRef}>
+      </div>
+      {/* ========================================================== */}
     </div>
   );
 }

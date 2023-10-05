@@ -3,7 +3,7 @@ import moment from 'moment-timezone';
 import 'moment/locale/ko';
 import './MomentPractice.css'; // 추가
 
-export default function MomentPractice() {
+export default function MomentPractice(props) {
     // npm install moment, moment-timezone 
     // moment-timezone은 moment.js를 확장하여 시간대 처리를 가능하게 함. 하지만 라이브러리 자체가 꽤 무거움
 
@@ -35,6 +35,8 @@ export default function MomentPractice() {
             YYYY-MM-DD: "2023-09-26"와 같은 형식
             YYYY-MM-DD HH:mm:ss: "2023-09-26 14:30:00"와 같은 형식
      */
+    
+    const className = props.className;
 
     const momentDate = moment();
     const newMomentDate = moment().add(1, "week")
@@ -50,7 +52,7 @@ export default function MomentPractice() {
     }
 
     return (
-        <div style={{marginLeft: "7px", border: "solid 0.5px lightgray", paddingLeft: "7px"}}>
+        <div className={className}>
             <h1>Moment.js Practice</h1>
             <div>
                 <h3 style={{color: "gray"}}>불변성(Immutability) 원칙</h3>
