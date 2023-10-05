@@ -1,0 +1,19 @@
+.dateFNS {
+    margin-left: 7px;
+    border: solid 0.5px lightgray;
+    padding-left: 7px;
+
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease-in-out;
+}
+
+.active {
+    margin-left: 7px;
+    border: solid 0.5px lightgray;
+    padding-left: 7px;
+
+    height: 810px;
+    overflow: visible;
+    transition: height 0.3s ease-in-out;
+}

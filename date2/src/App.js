@@ -9,8 +9,6 @@ function App() {
   const [activeDayJS, setActiveDayJS] = useState(false);
   const [activeDateFNS, setActiveDateFNS] = useState(false);
 
-  const momentRef = useRef(null);
-
   useEffect(() => {
 
   }, [activeMomentJS, activeDayJS, activeDateFNS]);
@@ -33,23 +31,22 @@ function App() {
     <div className="App">
 
       {/* Moment.js 토글 */}
-      <div className="division" style={{textAlign: "center"}} onClick={MomentJSClickHandler}>
+      <div className="division" onClick={MomentJSClickHandler}>
         <h3>MOMENT.JS</h3>
       </div>
-      {/* activeMomentJS && <MomentPractice /> */}
-      <MomentPractice className={`${activeMomentJS ? 'moment' : 'moment active'}`} ref={momentRef}/>
+      <MomentPractice className={`${activeMomentJS ? 'moment' : 'moment active'}`}/>
 
       {/* Day.js 토글 */}
-      <div className="division" style={{textAlign: "center"}} onClick={() => setActiveDayJS(!activeDayJS)}>
+      <div className="division" onClick={() => setActiveDayJS(!activeDayJS)}>
         <h3>DAY.JS</h3>
       </div>
-      {activeDayJS && <DayJSPractice />}
+      <DayJSPractice className={`${activeDayJS ? 'dayjs' : 'dayjs active'}`} />
 
       {/* Date FNS 토글 */}
-      <div className="division" style={{textAlign: "center"}} onClick={() => setActiveDateFNS(!activeDateFNS)}>
+      <div className="division" onClick={() => setActiveDateFNS(!activeDateFNS)}>
         <h3>DATE FNS</h3>
       </div>
-      {activeDateFNS && <DateFNSPractice />}
+      <DateFNSPractice className={`${activeDateFNS ? 'dateFNS' : 'dateFNS active'}`} />
 
       <hr/>
       

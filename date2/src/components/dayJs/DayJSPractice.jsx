@@ -1,9 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react'
-import dayjs from 'dayjs'
+import React, { useState, useEffect, useRef } from 'react';
+import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
+import './DayJSPractice.css';
 
-export default function DayJSPractice() {
+export default function DayJSPractice(props) {
 	// npm install dayjs {--no-audit}
+	const className = props.className;
+
 	dayjs.locale('ko');
 	
 	const [currTime, setCurrTime] = useState(dayjs());
@@ -36,7 +39,7 @@ export default function DayJSPractice() {
 
 
 	return (
-		<div style={{marginLeft: "7px", border: "solid 0.5px lightgray", paddingLeft: "7px"}}>
+		<div className={className}>
 			<h1>Day.js Practice</h1>
 			
 			<div>

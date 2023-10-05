@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import { format, compareAsc } from 'date-fns'
-import kor from 'date-fns/locale/ko'
+import React, { useState, useEffect } from 'react';
+import './DateFNSPractice.css'
+import { format, compareAsc } from 'date-fns';
+import kor from 'date-fns/locale/ko';
 
-export default function DateFNSPractice() {
+export default function DateFNSPractice(props) {
     // npm install date-fns date-fns-tz {--no-audit}
-    const [currDate, settCurrDate] = useState(new Date());
+    const className = props.className;
+
+    const [currDate, setCurrDate] = useState(new Date());
 
     // useEffect(() => {
     //     const timerID = setInterval(() => {
@@ -28,7 +31,7 @@ export default function DateFNSPractice() {
     const sortedDates = dates.sort((a, b) => compareAsc(a, b));
 
     return (
-        <div style={{marginLeft: "7px", border: "solid 0.5px lightgray", paddingLeft: "7px"}}>
+        <div className={className} >
             <h1>Date FNS Practice</h1>
 
             <div>
