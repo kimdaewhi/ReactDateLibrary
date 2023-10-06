@@ -1,3 +1,14 @@
+.dateFNS-subhead {
+    color: #6b6b6b;
+}
+
+.clock {
+    color: #800060;
+    padding: 4px;
+    border: 0.5px solid #292929;
+    display: inline-block;
+}
+
 .dateFNS {
     margin-left: 7px;
     border: solid 0.5px lightgray;
@@ -13,7 +24,7 @@
     border: solid 0.5px lightgray;
     padding-left: 7px;
 
-    height: 810px;
+    height: 1200px;
     overflow: visible;
     transition: height 0.3s ease-in-out;
 }
