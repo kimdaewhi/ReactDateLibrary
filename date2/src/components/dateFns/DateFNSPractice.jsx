@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './DateFNSPractice.css'
+import DateFNSPCalandar from './DateFNSCalandar'
 import { format, compareAsc, parse } from 'date-fns';
 import { addDays, addMonths, addYears, subDays, subMonths, subYears } from 'date-fns';
 import { differenceInDays, isBefore, isAfter } from 'date-fns';
@@ -158,7 +159,11 @@ export default function DateFNSPractice(props) {
 
             <div>
                 <h3 className="dateFNS-subhead">Date FNS로 달력 만들기</h3>
+                <br/>
+                <DateFNSPCalandar />
             </div>
+
+
         </div>
     )
 }
